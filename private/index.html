@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>Is this cheap?</title>
+    <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
+    <script src="js.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <p>
+      <button class="button" id="formButton">+ Contribute</button>
+    </p>
+    <div id="formdiv" class="modal">
+        <div class="modal-content">
+            <div class="form">
+                <form action="" id="form">
+                    <div class="form-input">
+                        <h2>Contribute</h2>
+                        <input type="date" id="formdate" placeholder="Date" />
+                        <div class="autocomplete">
+                            <label for="item">Item:</label> 
+                            <input type="text" id="item" placeholder="e.g. Strawberries" onchange="getSuggestion()" />
+                        </div>
+                        <div class="autocomplete">
+                            <label for="brand">Brand:</label> 
+                            <input type="text" id="brand" placeholder="e.g. Pasar" />
+                        </div>
+                        <div class="autocomplete">
+                            <label for="units">Units:</label> 
+                            <input type="text" id="units" placeholder="e.g. 1" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1').replace(/(\...)./g, '$1');" />
+                        </div>
+                        <div class="autocomplete">
+                            <label for="unittype">Unit Type:</label> 
+                            <input type="text" id="unittype" placeholder="e.g. Packet" />
+                        </div>
+                        <div class="autocomplete">
+                            <label for="price">Price:</label> 
+                            <span class="formcurrency">$</span>
+                            <input type="text" id="price" placeholder="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1').replace(/(\...)./g, '$1');"/>
+                        </div>
+                        <button type="submit">Submit</button>
+                        <div class="formstatus" id="formstatus"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <input type="text" id="searchBox" onkeyup="search()" placeholder="Search for items.." autofocus onfocus="this.select();this.click()">
+    <span class="fa fa-search searchIcon"></span>
+    <table id="myTable">
+        <tr id="tableHeader" class="header">
+        </tr>
+    </table>
+
+</body>
+</html>
