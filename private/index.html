@@ -22,7 +22,7 @@
                         <input type="date" id="formdate" placeholder="Date" />
                         <div class="autocomplete">
                             <label for="item">Item:</label> 
-                            <input type="text" id="item" placeholder="e.g. Strawberries" onchange="getSuggestion()" />
+                            <input type="text" id="item" placeholder="e.g. Strawberries" oninput="getSuggestion()" />
                         </div>
                         <div class="autocomplete">
                             <label for="brand">Brand:</label> 
@@ -40,6 +40,10 @@
                             <label for="price">Price:</label> 
                             <span class="formcurrency">$</span>
                             <input type="text" id="price" placeholder="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1').replace(/(\...)./g, '$1');"/>
+                        </div>
+                        <div class="autocomplete">
+                            <label for="private">Private:</label>
+                            <input type="checkbox" id="private">
                         </div>
                         <button type="submit">Submit</button>
                         <div class="formstatus" id="formstatus"></div>
